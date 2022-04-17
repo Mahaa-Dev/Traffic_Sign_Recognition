@@ -1,0 +1,52 @@
+body {
+  font-family: Arial, Helvetica, serif;
+}
+/* {box-sizing: border-box;} */
+
+input[type="text"],
+select,
+textarea {
+ 
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+  margin-top: 6px;
+  margin-bottom: 16px;
+  resize: vertical;
+}
+
+input[type="submit"] {
+  background-color: #04aa6d;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+input[type="submit"]:hover {
+  background-color: #339b38;
+}
+
+.container {
+  border-radius: 5px;
+  background-color: #f2f2f2;
+  padding: 20px;
+  align-items: center;
+  width: 50vw;
+  margin-left: 25vw;
+}
+h3 {
+  text-align: center;
+}
+p {
+  text-align: center;
+}
+.messe {
+  width: 60%;
+}
+#messege {
+  width: 63%;
+  font-family: serif;
+}

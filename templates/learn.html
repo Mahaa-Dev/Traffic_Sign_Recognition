@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8" />
+      <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Recognize traffic sign</title>
+      <style>
+         @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+         * {
+         margin: 0;
+         padding: 0;
+         box-sizing: border-box;
+         }
+         body {
+         background: #ffffe0;
+         font-family: "Noto Sans", sans-serif;
+         }
+         header {
+         background: #ffffe0;
+         }
+         a:hover {
+         cursor: pointer;
+         }
+         
+      </style>
+      <script src="https://cdn.tailwindcss.com"></script>
+      <script
+         src="https://kit.fontawesome.com/f9f03dcea6.js"
+         crossorigin="anonymous"
+         ></script>
+   </head>
+   <body>
+      <!-- MAIN -->
+      <main class="flex flex-col max-w-5xl h-screen m-auto items-center">
+      <a href="/" class="p-4 text-2xl font-bold text-center">The Traffic</a>
+      <!-- extra section -->
+      <div class="flex md:flex-row flex-wrap h-full overflow-hidden">
+         <div class="w-full md:w-1/4 bg-#ffffe0-400 p-4  text-gray-700 gap-4"> 
+            <div class="border-current border-color: currentColor">
+             <div class="shadow-xl	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)">
+               <div class="col-span-2 hover:col-span-6">
+                  <h3 class="font-bold">Traffic Rules and Regulations</h3>
+                  <nav>
+                     <ul>
+                        <li><a class="text-primary" href="#rule-1">1) Basic Rules</a></li>
+                        <li><a href="#rule-2">2) Rules of road</a></li>
+                        <li><a href="#rule-3">3) Traffic signals</a></li>
+                     </ul>
+                  </nav>
+                  <h3 class="font-bold">Types of Traffic Signs</h3>
+                  <nav>
+                     <ul>
+                        <li><a href="#rule-4">4) Regulatory Signs</a></li>
+                        <li><a href="#rule-5">5) Warning Signs</a></li>
+                        <li><a href="#rule-6">6) Informatory Signs</a></li>
+                     </ul>
+                  </nav>
+               </div>
+               </div>
+            </div>
+         </div>
+         <div class="w-full md:w-3/4 bg-#ffffe0-500 p-4  text-gray-700 h-full overflow-y-auto">
+            <div class="border-current border-color: currentColor">
+               <div class="shadow-xl	box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1)">
+               <div class="card">
+                  <div class="rule-1" margin-top>
+                     <h3 class="text-2xl" >Traffic Rules & Regulations </h3>
+                     <h3 class="text-xl" id="rule-1">1)	Basic Rules</h3>
+                     <br />
+                     Do not Drive without these Documents
+                     <ol>
+                        <li> Valid driving license</li>
+                        <li> Vehicle registration certificate</li>
+                        <li> Valid vehicle's insurance certificate </li>
+                     </ol>
+                     <br />
+                     <h3 class="text-xl" id="rule-2">2)	Rules of the Road</h3>
+                     <br>
+                     <p align="justify"><strong>General Rules Keep Left</strong> on a two-way road to allow traffic from the opposite direction to pass on your right and on a one-way road to allow vehicles behind you to overtake from your right.</p>
+                     <p align="justify"><strong>When Turning Left</strong> keep to the left side of the road you are leaving as well as the one you are entering. <strong>When turning right</strong>, move to the centre of the road you are leaving and arrive near the left side of road you are entering.</p>
+                     <p align="justify"><strong>Slow Down</strong> at road junctions, intersections, pedestrian crossings and road corners and wait until you are sure of a clear passage ahead. if you are entering a main road where traffic is not being regulated, give way to vehicles passing on your right.</p>
+                     <p align="justify">To allow the vehicle behind you to overtake, swing your right arm backward and forward in a semi circular motion.</p>
+                     <p align="justify"><strong>Do Not Park</strong> at or near a road crossing or on top of a hill or on a footpath; too near a traffic light or pedestrian crossing; on a main road or a road with heavy traffic; in front of or opposite another parked vehicle to cause obstruction; on roads that have a white line; near a bus- stop, school or hospital entrance; right next to a traffic sign thereby blocking it for others; at the entrance of a building; near a fire hydrant thereby blocking access to it; where parking is specifically prohibited. </p>
+                     <p align="justify"><strong>Use The Horn</strong> only when essential and do not use it in a silence zone. Do not fit loud, multi-toned or harsh and shrill sounding horns or alarms in your vehicle. Vehicles with altered silencers are also prohibited on the road.</p>
+                     <p align="justify"><strong>Do Not Brake Suddenly</strong> except for safety reasons. </p>
+                     <p align="justify"><strong>When Road Repair Work</strong> is going on, slow down and drive at a speed not exceeding twenty five kilometers per hour. </p>
+                     <p align="justify"><strong>Do Not Drive</strong> on the road if you are unwell or after taking medication that is likely to impair your driving abilities including tonics that may have an alcohol content in them.</p>
+                     <p align="justify"><strong>Sharing The Road</strong> Drivers often forget that roads are not just for them alone. This can make things difficult on the road for pedestrians, cyclists, scooterists and motor cyclists who do not have solid protections around them. They are entitled to your care and consideration. Always keep a close watch on other road users. Children, for example, may do unexpected things. Elderly pedestrians may move more slowly than you expect or may not see or hear you until you are too close.</p>
+                     <p align="justify"><strong>Cyclists and MotorCyclists</strong> have the same rights and responsibilities as drivers of larger vehicles. When overtaking cyclists, leave at least one metre clearance. Don't try to share the lane with them. Cycle riders are entitled to ride two abreast. Also, when you are about to alight from your car, check for bicycle riders or scooterists to avoid opening your door in their path. Children on cycles can also be unpredictable. Take extra care of them.</p>
+                     <br>
+                     <h3 class="text-xl" id="rule-3">3) Traffic Signals</h3>
+                     <br>
+                     <p align="justify"><strong>Red Light Signals</strong> means STOP. A right turn can be made against a red light ONLY after you stop and yield to pedestrians and vehicles in your path. DO NOT turn if there is a sign posted for NO TURN ON RED.</p>
+                     <p align="justify"><strong>Green Light Signals</strong> means GO, but you must first let any vehicles, bicycles, or pedestrians remaining in the intersection get through before you move ahead.</p>
+                     <p align="justify"><strong>Yellow Light Signals</strong> warns you that the red signal is about to appear. When you see the yellow light, you should stop, if you can do so safely. If you can't stop, look out for vehicles that may enter the intersection when the light changes.</p>
+                  </div>
+                  <br>
+                  <div class="types">
+                     <h3 class="text-2xl"><strong> Types of Traffic Signs</strong></h3>
+                     <br>
+                     <p align="justify">Drivers are given directions, critical information is shown, and laws are identified via traffic control signs, which come in a variety of designs and colors. The following are some of the most popular types of traffic control signs observed on highways:</p>
+                     <h3 class="text-xl" id="rule-4"><strong>4) Regulatory Signs</strong></h3>
+                     <p align="justify">The most typical regulatory indicators are black and white or red and white. These are the regulations of the road, as specified by the Motor Vehicle Act, and are intended to provide information about when to stop or how fast you can drive.</p>
+                     <image src="{{url_for('static',filename = 'image/regulatory-signs.jpg')}}"></image>
+                     <br>
+                     <h3 class="text-xl" id="rule-5"><strong>5) Warning Signs</strong></h3>
+                     <p align="justify">The purpose of warning signs is to draw attention to potentially hazardous or dangerous conditions on or near the route. These yellow signs with black information are used for a variety of things, including school zones and avalanche warnings.</p>
+                     <image src="{{url_for('static',filename = 'image/warning-sign.jpg')}}"></image>
+                     <br>
+                     <h3 class="text-xl" id="rule-6"><strong>6) Informatory Signs</strong></h3>
+                     <p align="justify">General text about areas of interest, as well as geographical and cultural information, can be found on information signs. These signs inform drivers of the ideal areas to stop for a rest or to take that perfect scenic photo.</p>
+                     <image src="{{url_for('static',filename = 'image/informatory-sign.jpg')}}"></image>
+                  </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- FOOTER -->
+      <footer class="w-5xl p-8 text-center">
+         <aside>
+            &copy; All rights reserved to
+            <span class="underline underline-offset-4 decoration-blue-600"
+               >SHIV KUMAR YADAV</span
+               >
+         </aside>
+         <aside class="flex gap-4 my-4 justify-center">
+            <a
+               href="https://www.fb.com/profile.php?id=100005949692756"
+               target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-facebook"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a href="https://www.instagram.com/shiv_kumar_1" target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-instagram"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a href="https://www.m.me/spydermyaan" target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa-brands fa-facebook-messenger"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a href="https://wa.me/+9779823618124" target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-whatsapp"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a href="https://www.github.com/Mahaa-Dev" target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-github"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a href="https://www.snapchat.com/add/shiv_yadav22" target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-snapchat"
+               aria-hidden="true"
+               ></i
+               ></a>
+            <a
+               href="https://www.linkedin.com/in/shiv-yadav-37a5821ab"
+               target="_blank"
+               ><i
+               class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-linkedin"
+               aria-hidden="true"
+               ></i
+               ></a>
+         </aside>
+      </footer>
+   </body>
+</html>

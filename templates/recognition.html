@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Recognize traffic sign</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #ffffe0;
+        font-family: "Noto Sans", sans-serif;
+      }
+      header {
+        background: #ffffe0;
+      }
+      a:hover {
+        cursor: pointer;
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/f9f03dcea6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- MAIN -->
+    <main class="flex flex-col max-w-5xl h-screen m-auto items-center">
+      <a href="/" class="pt-4 text-2xl font-bold text-center">The Traffic</a>
+      <img
+        class="my-4 object-cover w-80 max-h-80 border-2 border-blue-600"
+        src="{{ url_for('static',filename='illustrations/upload.svg')}}"
+        alt="image__preview"
+        id="image__preview"
+      />
+      <div>
+        <form enctype="multipart/form-data" id="image__upload__form"  class="w-full">
+          <div class='w-full p-4'>
+          <label for='imageUpload' class="select-none px-4 py-2 bg-gray-500 hover:bg-gray-400 text-white cursor-pointer">
+            Select image
+          <input
+          class="hidden"
+            type="file"
+            name="file"
+            id="imageUpload"
+            accept=".png, .jpg, .jpeg"
+          />
+            </label>
+          </div>
+          <div class="w-full">
+            <input
+              id="predict"
+              class="w-full px-4 py-2 bg-blue-600 text-white self-center hover:cursor-pointer hover:bg-blue-500"
+              type="submit"
+              value="Submit"
+            />
+          </div>
+        </form>
+        <div class="loader"></div>
+
+    <h3 id="result" class='mt-8 font-bold'>
+        <span></span>
+    </h3>
+      </div>
+    </main>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(document).ready(function () {
+        // Init
+        $(".image-section").hide();
+        $(".loader").hide();
+        $("#result").hide();
+
+        // Upload Preview
+        function readURL(input) {}
+
+        $("#imageUpload").change(function () {
+          if (this.files && this.files[0]) {
+            var reader = new FileReader();
+            reader.onload = function (e) {
+              $("#image__preview").attr("src", e.target.result);
+            };
+            reader.readAsDataURL(this.files[0]);
+          }
+        });
+
+        // Predict
+        $("#image__upload__form").submit(function (e) {
+          e.preventDefault();
+          var form_data = new FormData($("#image__upload__form")[0]);
+
+          // Show loading animation
+          $(".loader").show();
+
+          // Make prediction by calling api /predict
+          $.ajax({
+            type: "POST",
+            url: "/predict",
+            data: form_data,
+            contentType: false,
+            cache: false,
+            processData: false,
+            async: true,
+            success: function (data) {
+              // Get and display the result
+              $(".loader").hide();
+              $("#result").fadeIn(600);
+              $("#result").text(data);
+            },
+          });
+        });
+      });
+    </script>
+  </body>
+</html>

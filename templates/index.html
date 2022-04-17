@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Traffic Sign Recognition by Shiv Kumar Yadav</title>
+    <style>
+      @import url("https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap");
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      body {
+        background: #ffffe0;
+        font-family: "Noto Sans", sans-serif;
+      }
+      header {
+        background: #ffffe0;
+      }
+      a:hover {
+        cursor: pointer;
+      }
+      @media screen and (min-width: 768px) {
+        .img {
+          clip-path: polygon(
+            20% 0,
+            80% 0,
+            100% 50%,
+            80% 100%,
+            20% 100%,
+            0% 50%
+          );
+        }
+      }
+    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script
+      src="https://kit.fontawesome.com/f9f03dcea6.js"
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- MAIN -->
+    <main class="flex flex-col max-w-5xl m-auto">
+      <a href="/" class="pt-4 text-2xl font-bold text-center">The Traffic</h2>
+      <!-- HERO SECTION -->
+      <section
+        class="w-5xl flex py-4 md:py-16 flex-col-reverse md:flex-row items-center"
+      >
+        <aside class="p-4 self-stretch flex flex-col justify-evenly">
+          <h1 class="text-5xl font-bold md:w-1/2 leading-tight text-left">
+            The Best<br />
+            Traffic Signs
+            <span class="underline underline-offset-8 decoration-blue-600"
+              >Recognition</span
+            >
+            System.
+          </h1>
+          <section class="flex gap-4 my-8 justify-start">
+            <a
+              href="/recognize"
+              id="get__started__button"
+              class="bg-blue-600 py-2 px-4 text-xl text-center text-white shadow-lg hover:bg-blue-500"
+            >
+              Start now
+            </a>
+            <a
+              href="/learn"
+              id="get__started__button"
+              class="py-2 px-4 text-xl text-center underline underline-offset-2 decoration-gray-400"
+            >
+              Learn more
+            </a>
+          </section>
+        </aside>
+        <aside class="grow p-4">
+          <img
+            alt="hero"
+            src="https://images.unsplash.com/photo-1517255666489-db1d2c54d083?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=880&q=80"
+            class="rounded img"
+          />
+        </aside>
+      </section>
+    </main>
+    <!-- ABOUT SECTION -->
+    <section class="max-w-5xl m-auto p-4">
+      <h2 class="w-full text-4xl md:text-center font-bold">
+        How Does it
+        <span class="underline underline-offset-4 decoration-blue-600"
+          >Work</span
+        >?
+      </h2>
+      <section class="flex flex-col md:flex-row">
+        <aside class="my-8">
+          <h4 class="font-bold">1. Upload a pic</h4>
+          <img
+            class="my-4 object-contain"
+            src="{{ url_for('static',filename='illustrations/upload.svg')}}"
+            alt=""
+          />
+        </aside>
+        <aside class="my-8">
+          <h4 class="font-bold">2. Model predicts the sign</h4>
+          <img
+            class="my-4 object-contain"
+            src="{{ url_for('static',filename='illustrations/process.svg')}}"
+            alt=""
+          />
+        </aside>
+        <aside class="my-8">
+          <h4 class="font-bold">3. Prints the recognized traffic sign</h4>
+          <img
+            id="'image__preview'"
+            class="my-4 object-contain"
+            src="{{ url_for('static',filename='illustrations/output.svg')}}"
+            alt=""
+          />
+        </aside>
+      </section>
+      <section class="max-w-5xl m-auto p-4 flex flex-col">
+        <h2 class="w-full text-4xl md:text-center font-bold">
+          Have any
+          <span class="underline underline-offset-4 decoration-blue-600"
+            >suggestions</span
+          >
+          ?
+        </h2>
+        <form
+          class="w-full py-4 md:py-8 self-center flex flex-col"
+          action="/index.html"
+          method="POST"
+        >
+          <div class="my-4">
+            <label class="block">Name</label>
+            <input
+              name="name"
+              class="my-2 w-full px-4 py-2 border-2 border-black"
+              type="text"
+              placeholder="Your name"
+              required
+            />
+          </div>
+          <div class="my-4">
+            <label class="block">Email</label>
+            <input
+              name="email"
+              class="my-2 w-full px-4 py-2 border-2 border-black"
+              type="email"
+              placeholder="Your email"
+              required
+            />
+          </div>
+          <div class="my-4">
+            <label class="block">Message</label>
+            <input
+              name="message"
+              class="my-2 w-full h-52 px-4 border-2 border-black resize-y"
+              type="textarea"
+              placeholder="Write something..."
+              required
+            />
+          </div>
+          <input
+            class="w-full md:w-auto px-4 py-2 bg-blue-600 text-white self-center hover:cursor-pointer hover:bg-blue-500"
+            type="submit"
+            value="Submit"
+          />
+        </form>
+      </section>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="w-5xl p-8 text-center">
+      <aside>
+        &copy; All rights reserved to
+        <span class="underline underline-offset-4 decoration-blue-600"
+          >SHIV KUMAR YADAV</span
+        >
+      </aside>
+      <aside class="flex gap-4 my-4 justify-center">
+        <a
+          href="https://www.fb.com/profile.php?id=100005949692756"
+          target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-facebook"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a href="https://www.instagram.com/shiv_kumar_1" target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-instagram"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a href="https://www.m.me/spydermyaan" target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa-brands fa-facebook-messenger"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a href="https://wa.me/+9779823618124" target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-whatsapp"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a href="https://www.github.com/Mahaa-Dev" target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-github"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a href="https://www.snapchat.com/add/shiv_yadav22" target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-snapchat"
+            aria-hidden="true"
+          ></i
+        ></a>
+        <a
+          href="https://www.linkedin.com/in/shiv-yadav-37a5821ab"
+          target="_blank"
+          ><i
+            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-linkedin"
+            aria-hidden="true"
+          ></i
+        ></a>
+      </aside>
+    </footer>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+      integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+    <script>
+      $(".nav__link").click(function () {
+        $(".nav__link").removeClass("border-b-2");
+        $(".nav__link").removeClass("text-black");
+        $(this).addClass("border-b-2");
+        $(this).addClass("border-black");
+        $(this).addClass("text-black");
+      });
+    </script> 
+  </body>
+</html>
