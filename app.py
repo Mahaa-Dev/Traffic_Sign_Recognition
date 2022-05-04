@@ -109,8 +109,6 @@ def upload():
         # Make prediction
         result = image_processing(file_path)
         print(result)
-        # s = [str(i) for i in result]
-        # a = int("".join(s))
         result = "Recognized Traffic Sign is: " + classes[result]
         os.remove(file_path)
         return result

@@ -40,17 +40,24 @@
         id="image__preview"
       />
       <div>
-        <form enctype="multipart/form-data" id="image__upload__form"  class="w-full">
-          <div class='w-full p-4'>
-          <label for='imageUpload' class="select-none px-4 py-2 bg-gray-500 hover:bg-gray-400 text-white cursor-pointer">
-            Select image
-          <input
-          class="hidden"
-            type="file"
-            name="file"
-            id="imageUpload"
-            accept=".png, .jpg, .jpeg"
-          />
+        <form
+          enctype="multipart/form-data"
+          id="image__upload__form"
+          class="w-full"
+        >
+          <div class="w-full p-4">
+            <label
+              for="imageUpload"
+              class="select-none px-4 py-2 bg-gray-500 hover:bg-gray-400 text-white cursor-pointer"
+            >
+              Select image
+              <input
+                class="hidden"
+                type="file"
+                name="file"
+                id="imageUpload"
+                accept=".png, .jpg, .jpeg"
+              />
             </label>
           </div>
           <div class="w-full">
@@ -64,9 +71,9 @@
         </form>
         <div class="loader"></div>
 
-    <h3 id="result" class='mt-8 font-bold'>
-        <span></span>
-    </h3>
+        <h3 id="result" class="mt-8 font-bold">
+          <span></span>
+        </h3>
       </div>
     </main>
     <script
@@ -98,6 +105,13 @@
         // Predict
         $("#image__upload__form").submit(function (e) {
           e.preventDefault();
+          let length = $("#imageUpload")[0].files.length;
+          if (length < 1) {
+            alert("Please provide image.");
+            let utterance = new SpeechSynthesisUtterance("Image not provided!");
+            speechSynthesis.speak(utterance);
+            return;
+          }
           var form_data = new FormData($("#image__upload__form")[0]);
 
           // Show loading animation
@@ -115,7 +129,7 @@
             success: function (data) {
               // Get and display the result
               $(".loader").hide();
-              $("#result").fadeIn(600);
+              $("#result").fadeIn(5);
               $("#result").text(data);
             },
           });

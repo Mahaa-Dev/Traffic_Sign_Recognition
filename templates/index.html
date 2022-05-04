@@ -60,12 +60,12 @@
           </h1>
           <section class="flex gap-4 my-8 justify-start">
             <a
-              href="/recognize"
-              id="get__started__button"
-              class="bg-blue-600 py-2 px-4 text-xl text-center text-white shadow-lg hover:bg-blue-500"
-            >
-              Start now
-            </a>
+            href="/recognize"
+            id="get__started__button-start"
+            class="bg-blue-600 py-2 px-4 text-xl text-center text-white shadow-lg hover:bg-blue-500"
+          >
+            Start now
+          </a>
             <a
               href="/learn"
               id="get__started__button"
@@ -94,28 +94,28 @@
       </h2>
       <section class="flex flex-col md:flex-row">
         <aside class="my-8">
-          <h4 class="font-bold">1. Upload a pic</h4>
+          <h3 class="font-bold">1. Upload a pic</h3>
           <img
             class="my-4 object-contain"
             src="{{ url_for('static',filename='illustrations/upload.svg')}}"
-            alt=""
+            alt="upload"
           />
         </aside>
         <aside class="my-8">
-          <h4 class="font-bold">2. Model predicts the sign</h4>
+          <h3 class="font-bold">2. Model predicts the sign</h3>
           <img
             class="my-4 object-contain"
             src="{{ url_for('static',filename='illustrations/process.svg')}}"
-            alt=""
+            alt="process image"
           />
         </aside>
         <aside class="my-8">
-          <h4 class="font-bold">3. Prints the recognized traffic sign</h4>
+          <h3 class="font-bold">3. Prints the recognized traffic sign</h3>
           <img
             id="'image__preview'"
             class="my-4 object-contain"
             src="{{ url_for('static',filename='illustrations/output.svg')}}"
-            alt=""
+            alt="output image"
           />
         </aside>
       </section>
@@ -127,6 +127,7 @@
           >
           ?
         </h2>
+      
         <form
           class="w-full py-4 md:py-8 self-center flex flex-col"
           action="/index.html"
@@ -154,13 +155,13 @@
           </div>
           <div class="my-4">
             <label class="block">Message</label>
-            <input
+            <textarea
               name="message"
-              class="my-2 w-full h-52 px-4 border-2 border-black resize-y"
-              type="textarea"
+              class="my-2 w-full px-4 border-2 border-black"
               placeholder="Write something..."
+              rows="10"
               required
-            />
+            ></textarea>
           </div>
           <input
             class="w-full md:w-auto px-4 py-2 bg-blue-600 text-white self-center hover:cursor-pointer hover:bg-blue-500"
@@ -194,13 +195,7 @@
             aria-hidden="true"
           ></i
         ></a>
-        <a href="https://www.m.me/spydermyaan" target="_blank"
-          ><i
-            class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa-brands fa-facebook-messenger"
-            aria-hidden="true"
-          ></i
-        ></a>
-        <a href="https://wa.me/+9779823618124" target="_blank"
+        <a href="https://wa.me/+9779819980578" target="_blank"
           ><i
             class="text-2xl text-gray-400 hover:text-blue-600 hover:scale-110 fa fa-whatsapp"
             aria-hidden="true"
